@@ -22,6 +22,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another image release featu
 
 # linuxserver/sickgear
 [![](https://images.microbadger.com/badges/version/linuxserver/sickgear.svg)](https://microbadger.com/images/linuxserver/sickgear "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/sickgear.svg)](https://microbadger.com/images/linuxserver/sickgear "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/sickgear.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/sickgear.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-sickgear)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-sickgear/)
+
 SickGear provides management of TV shows and/or Anime, it can detect new episodes, link to downloader apps, and more.  SickGear is a proud descendant of Sick Beard and is humbled to have been endorsed by one of its former lead developers.  
 
 Why SickGear?  
@@ -30,17 +31,19 @@ Why SickGear?
 * [Migrating](https://github.com/SickGear/SickGear/wiki/Install-SickGear-%5B0%5D-Migrate) to a hassle free and feature rich set up is super simple
 
 [![sickgear](https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png)][appurl]
-n&nbsp;
+
+&n&nbsp;
 
 ## Usage
 
 ```
 docker create \
   --name=sickgear \
-  -v <path to data>:/config \
-  -v <path to data>:/config \
-  -v <path to data>:/config \
+  -v <path to config>:/config \
+  -v <path to downloads>:/downloads \
+  -v <path to tv-shows>:/tv \
   -e PGID=<gid> -e PUID=<uid>  \
+  -e TZ=<timezone>
   -p 8081:8081 \
   linuxserver/sickgear
 ```
