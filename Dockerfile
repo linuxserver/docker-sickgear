@@ -1,0 +1,33 @@
+FROM lsiobase/alpine.python:3.7
+
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="sparklyballs"
+
+# set python to use utf-8 rather than ascii.
+ENV PYTHONIOENCODING="UTF-8"
+
+RUN \
+ echo "**** install build packages ****" && \
+ apk add --no-cache --virtual=build-dependencies \
+	gcc \
+	musl-dev \
+	python-dev && \
+ echo "install pip packages ****" && \
+ pip install -U \
+	regex \
+	scandir && \
+  echo "**** install app ****" && \
+ git clone https://github.com/SickGear/SickGear /app/sickgear && \
+ echo "**** cleanup ****" && \
+ apk del --purge \
+	build-dependencies
+
+# copy local files
+COPY root/ /
+
+# ports and volumes
+EXPOSE 8081
+VOLUME /config /downloads /tv
