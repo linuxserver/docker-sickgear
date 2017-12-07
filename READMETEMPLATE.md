@@ -32,7 +32,7 @@ Why SickGear?
 
 [![sickgear](https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png)][appurl]
 
-&n&nbsp;
+&nbsp;
 
 ## Usage
 
