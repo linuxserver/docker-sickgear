@@ -12,18 +12,19 @@ ENV PYTHONIOENCODING="UTF-8"
 RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
-	gcc \
-	musl-dev \
-	python-dev && \
+        gcc \
+        musl-dev \
+        python-dev && \
  echo "install pip packages ****" && \
  pip install -U \
-	regex \
-	scandir && \
-  echo "**** install app ****" && \
- git clone https://github.com/SickGear/SickGear /app/sickgear && \
+        regex \
+        scandir && \
+ echo "**** install app ****" && \
+ TAG_NAME="$(curl -sX GET https://api.github.com/repos/sickgear/sickgear/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
+ git clone -b $TAG_NAME --single-branch --depth 1 https://github.com/SickGear/SickGear /app/sickgear && \
  echo "**** cleanup ****" && \
  apk del --purge \
-	build-dependencies
+        build-dependencies
 
 # copy local files
 COPY root/ /
@@ -31,3 +32,4 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8081
 VOLUME /config /downloads /tv
+
