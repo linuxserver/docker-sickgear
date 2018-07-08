@@ -4,7 +4,7 @@ FROM lsiobase/alpine.python:3.7
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+LABEL maintainer="xe, sparkyballs"
 
 # set python to use utf-8 rather than ascii.
 ENV PYTHONIOENCODING="UTF-8"
