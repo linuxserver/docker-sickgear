@@ -3,6 +3,7 @@ FROM lsiobase/alpine.python:3.7
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+ARG SICKGEAR_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="xe, sparkyballs"
 
@@ -20,8 +21,18 @@ RUN \
         regex \
         scandir && \
  echo "**** install app ****" && \
- TAG_NAME="$(curl -sX GET https://api.github.com/repos/sickgear/sickgear/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
- git clone -b $TAG_NAME --single-branch --depth 1 https://github.com/SickGear/SickGear /app/sickgear && \
+ mkdir -p \
+        /app/sickgear/ && \
+ if [ -z ${SICKGEAR_RELEASE+x} ]; then \
+        SICKGEAR_RELEASE=$(curl -sX GET "https://api.github.com/repos/sickgear/sickgear/releases/latest" \
+        | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+ fi && \
+ curl -o \
+ /tmp/sickgear.tar.gz -L \
+        "https://github.com/sickgear/sickgear/archive/${SICKGEAR_RELEASE}.tar.gz" && \
+ tar xf \
+ /tmp/sickgear.tar.gz -C \
+        /app/sickgear/ --strip-components=1 && \
  echo "**** cleanup ****" && \
  apk del --purge \
         build-dependencies
@@ -32,4 +43,3 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8081
 VOLUME /config /downloads /tv
-
