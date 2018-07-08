@@ -59,15 +59,6 @@ For example with a port -p external:internal - what this shows is the port mappi
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.
 
-* `-p 8081` - the port(s)
-* `-v /config` - where sickgear should store config files.
-* `-v /downloads` - your downloads folder
-* `-v /tv` - your tv-shows folder
-* `-e PGID` for GroupID - see below for explanation
-* `-e PUID` for UserID - see below for explanation
-* `-e TZ` for timezone information, eg Europe/London
-
-
 | Parameter | Function |
 | :---: | --- |
 | `-p 8081` | the port(s) |
@@ -86,7 +77,7 @@ The application accepts extra environment variables to further customize itself 
 
   | Parameter | Function |
 | :---: | --- |
-| `-e TZ=` | The timezone the application will use IE US/Pacific|
+| `-e TZ` | The timezone the application will use IE US/Pacific|
 
 &nbsp;
 
