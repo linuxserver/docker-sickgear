@@ -1,5 +1,13 @@
 #!/usr/bin/with-contenv bash
 
+#make our folders and links
+mkdir -p \
+        /config \
+
+# If needed add dafault config
+[[ ! -e /config/config.ini ]] && \
+cp /defaults/config.ini /config/config.ini
+
 # permissions
 chown -R abc:abc \
 	/app \
