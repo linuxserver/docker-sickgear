@@ -65,7 +65,6 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 | `-v /config` | Contains your config files and data storage for sickgear|
 | `-v /downloads` | Your downloads folder for post processing(must not be donwload in progress)|
 | `-v /tv` |  Your tv-shows folder|
-| `-v /config` | Contains your config files and data storage for sickgear|
 | `-e PGID` | for GroupID, see below for explanation |
 | `-e PUID` | for UserID, see below for explanation |
 
