@@ -111,6 +111,8 @@ Non linuxserver.io containers are known to have the following configuration diff
 
 * The configuraiton file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
 
+* The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. Symptoms of this issue include port usage problems and a failure to start the web server log entries. Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
+
 Its is recommened that a clean install be completed rather than a migration however if migration isn ecessary:
 
 * start a new instance of this image
