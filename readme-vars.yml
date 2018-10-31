@@ -1,0 +1,70 @@
+---
+
+# project information
+project_name: sickgear
+project_url: "https://github.com/sickgear/sickgear"
+project_logo: "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
+project_blurb: |
+  [{{ project_name|capitalize }}]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+
+  For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
+project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+
+# supported architectures
+available_architectures:
+  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+
+# container parameters
+param_container_name: "{{ project_name }}"
+param_usage_include_vols: true
+param_volumes:
+  - { vol_path: "/config", vol_host_path: "<path to data>", desc: "this will store any uploaded data on the docker host" }
+  - { vol_path: "/tv", vol_host_path: "<path to data>", desc: "where you store your tv shows" }
+  - { vol_path: "/downloads", vol_host_path: "<path to data>", desc: "your downloads folder for post processing (must not be donwload in progress)" }
+param_usage_include_env: false
+
+param_usage_include_ports: true
+param_ports:
+  - { external_port: "8081", internal_port: "8081", port_desc: "will map the container's port 8081 to port 8081 on the host" }
+
+# application setup block
+app_setup_block_enabled: true
+app_setup_block: |
+## Setting up the application
+
+Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
+
+
+## Migration
+
+Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
+
+* The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
+
+* The permissions environmental variables which are defined as `PGID` and `PUID` within this container may have been `APP_UID` and `APP_UID` in other versions.
+
+* The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
+
+* The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. 
+Symptoms of this issue include port usage problems and a failure to start the web server log entries. 
+Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
+
+It is recommended that a clean install be completed, rather than a migration, however if migration is necessary:
+
+* start a new instance of this image
+
+* compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
+
+* stop both containers
+
+* notice the configuration difference and migrate copies of the old settings into the new app
+
+* start the new container and test
+
+# changelog
+changelogs:
+  - { date: "31.10.18:", desc: "Pipeline prep"}
+  - { date: "07.07.18:", desc: "Initial draft release"}
+
