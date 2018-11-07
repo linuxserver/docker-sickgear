@@ -65,6 +65,6 @@ It is recommended that a clean install be completed, rather than a migration, ho
 
 # changelog
 changelogs:
-  - { date: "31.10.18:", desc: "Pipeline prep"}
+  - { date: "07.11.18:", desc: "Pipeline prep"}
   - { date: "07.07.18:", desc: "Initial draft release"}
 
