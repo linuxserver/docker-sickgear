@@ -36,7 +36,6 @@ app_setup_block: |
 
 Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
 
-
 ## Migration
 
 Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
