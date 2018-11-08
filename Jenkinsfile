@@ -11,7 +11,7 @@ pipeline {
     EXT_GIT_BRANCH = 'master'
     EXT_USER = 'sickgear'
     EXT_REPO = 'sickgear'
-    BUILD_VERSION_ARG = 'sickgear_RELEASE'
+    BUILD_VERSION_ARG = 'SICKGEAR_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-sickgear'
     DOCKERHUB_IMAGE = 'linuxserver/sickgear'
