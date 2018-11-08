@@ -14,6 +14,7 @@ pipeline {
     BUILD_VERSION_ARG = 'SICKGEAR_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-sickgear'
+    CONTAINER_NAME = 'sickgear'
     DOCKERHUB_IMAGE = 'linuxserver/sickgear'
     DEV_DOCKERHUB_IMAGE = 'lsiodev/sickgear'
     PR_DOCKERHUB_IMAGE = 'lspipepr/sickgear'
@@ -26,7 +27,7 @@ pipeline {
     CI_PORT='8081'
     CI_SSL='false'
     CI_DELAY='120'
-    CI_DOCKERENV='TZ=US/Pacific'
+    CI_DOCKERENV='TZ=EU/London'
     CI_AUTH='user:password'
     CI_WEBPATH=''
   }
