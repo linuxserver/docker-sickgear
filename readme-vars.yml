@@ -32,35 +32,35 @@ param_ports:
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-## Setting up the application
+  ## Setting up the application
 
-Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
+  Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
 
-## Migration
+  ## Migration
 
-Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
+  Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
 
-* The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
+  * The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
 
-* The permissions environmental variables which are defined as `PGID` and `PUID` within this container may have been `APP_UID` and `APP_UID` in other versions.
+  * The permissions environmental variables which are defined as `PGID` and `PUID` within this container may have been `APP_UID` and `APP_UID` in other versions.
 
-* The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
+  * The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
 
-* The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. 
-Symptoms of this issue include port usage problems and a failure to start the web server log entries. 
-Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
+  * The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. 
+  Symptoms of this issue include port usage problems and a failure to start the web server log entries. 
+  Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
 
-It is recommended that a clean install be completed, rather than a migration, however if migration is necessary:
+  It is recommended that a clean install be completed, rather than a migration, however if migration is necessary:
 
-* start a new instance of this image
+  * start a new instance of this image
 
-* compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
+  * compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
 
-* stop both containers
+  * stop both containers
 
-* notice the configuration difference and migrate copies of the old settings into the new app
+  * notice the configuration difference and migrate copies of the old settings into the new app
 
-* start the new container and test
+  * start the new container and test
 
 # changelog
 changelogs:
