@@ -4,7 +4,7 @@ pipeline {
   }
   // Input to determine if this is a package check
   parameters {
-     string(defaultValue: 'false', description: 'package check run', name: 'PACKAGE_CHECK')
+     string(defaultValue: 'null', description: 'package check run', name: 'PACKAGE_CHECK')
   }
   // Configuraiton for the variables used for this specific repo
   environment {
