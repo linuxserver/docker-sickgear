@@ -61,7 +61,7 @@ docker create \
   -v <path to data>:/config \
   -v <path to data>:/tv \
   -v <path to data>:/downloads \
-  --restart unless-stopped
+  --restart unless-stopped \
   linuxserver/sickgear
 ```
 
