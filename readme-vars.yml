@@ -1,8 +1,8 @@
 ---
 
 # project information
-project_name: sickgear
-project_url: "https://github.com/sickgear/sickgear"
+project_name: SickGear
+project_url: "https://github.com/SickGear/SickGear"
 project_logo: "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
 project_blurb: |
   [{{ project_name|capitalize }}]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
@@ -38,7 +38,7 @@ app_setup_block: |
 
   ## Migration
 
-  Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
+  Non linuxserver.io containers are known to have the following configuration differences and may need SickGear or docker changes to migrate an existing setup
 
   * The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
 
@@ -54,7 +54,7 @@ app_setup_block: |
 
   * start a new instance of this image
 
-  * compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
+  * compare and align SickGear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow SickGear itself to try and migrate
 
   * stop both containers
 
