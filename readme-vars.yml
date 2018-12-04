@@ -1,11 +1,11 @@
 ---
 
 # project information
-project_name: SickGear
-project_url: "https://github.com/SickGear/SickGear"
+project_name: sickgear
+project_url: "https://github.com/sickgear/sickgear"
 project_logo: "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
 project_blurb: |
-  [{{ project_name|capitalize }}]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+  [SickGear]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
 
   For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
@@ -34,7 +34,7 @@ app_setup_block_enabled: true
 app_setup_block: |
   ## Setting up the application
 
-  Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
+  Access the webui at `<your-ip>:8081`, for more information check out [SickGear]({{ project_url }}).
 
   ## Migration
 
