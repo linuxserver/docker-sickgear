@@ -27,7 +27,7 @@ TLDR: Multi-arch support is changing from multiple repos to one repo per contain
 ![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/sickgear.svg)
 ![Docker Stars](https://img.shields.io/docker/stars/linuxserver/sickgear.svg)
 
-[Sickgear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
 
 For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 
@@ -121,11 +121,11 @@ In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as bel
 
 ## Setting up the application
 
-Access the webui at `<your-ip>:8081`, for more information check out [Sickgear](https://github.com/sickgear/sickgear).
+Access the webui at `<your-ip>:8081`, for more information check out [SickGear](https://github.com/sickgear/sickgear).
 
 ## Migration
 
-Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
+Non linuxserver.io containers are known to have the following configuration differences and may need SickGear or docker changes to migrate an existing setup
 
 * The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
 
@@ -141,7 +141,7 @@ It is recommended that a clean install be completed, rather than a migration, ho
 
 * start a new instance of this image
 
-* compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
+* compare and align SickGear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow SickGear itself to try and migrate
 
 * stop both containers
 
