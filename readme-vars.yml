@@ -5,7 +5,7 @@ project_name: sickgear
 project_url: "https://github.com/sickgear/sickgear"
 project_logo: "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
 project_blurb: |
-  [{{ project_name|capitalize }}]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+  [SickGear]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
 
   For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
@@ -34,11 +34,11 @@ app_setup_block_enabled: true
 app_setup_block: |
   ## Setting up the application
 
-  Access the webui at `<your-ip>:8081`, for more information check out [{{ project_name|capitalize }}]({{ project_url }}).
+  Access the webui at `<your-ip>:8081`, for more information check out [SickGear]({{ project_url }}).
 
   ## Migration
 
-  Non linuxserver.io containers are known to have the following configuration differences and may need Sickgear or docker changes to migrate an existing setup
+  Non linuxserver.io containers are known to have the following configuration differences and may need SickGear or docker changes to migrate an existing setup
 
   * The post processing directory which is volume mounted as `downloads` within this container may be `incoming` in other versions.
 
@@ -54,7 +54,7 @@ app_setup_block: |
 
   * start a new instance of this image
 
-  * compare and align Sickgear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow Sickgear itself to try and migrate
+  * compare and align SickGear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow SickGear itself to try and migrate
 
   * stop both containers
 
