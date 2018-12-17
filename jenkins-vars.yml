@@ -1,0 +1,29 @@
+---
+
+# jenkins variables
+project_name: docker-sickgear
+external_type: github_devel
+release_type: stable
+release_tag: latest
+ls_branch: master
+repo_vars:
+  - EXT_GIT_BRANCH = 'master'
+  - EXT_USER = 'sickgear'
+  - EXT_REPO = 'sickgear'
+  - BUILD_VERSION_ARG = 'SICKGEAR_RELEASE'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-sickgear'
+  - CONTAINER_NAME = 'sickgear'
+  - DOCKERHUB_IMAGE = 'linuxserver/sickgear'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/sickgear'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/sickgear'
+  - DIST_IMAGE = 'alpine'
+  - MULTIARCH='true'
+  - CI='true'
+  - CI_WEB='true'
+  - CI_PORT='8081'
+  - CI_SSL='false'
+  - CI_DELAY='120'
+  - CI_DOCKERENV='TZ=Europe/London'
+  - CI_AUTH='user:password'
+  - CI_WEBPATH=''
