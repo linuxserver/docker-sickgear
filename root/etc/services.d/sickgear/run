@@ -4,5 +4,5 @@ UMASK_SET=${UMASK_SET:-022}
 umask "$UMASK_SET"
 
 exec \
-	s6-setuidgid abc python /app/sickgear/SickBeard.py \
+	s6-setuidgid abc python3 /app/sickgear/SickBeard.py \
 	--datadir /config
