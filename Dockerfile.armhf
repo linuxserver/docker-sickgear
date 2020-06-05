@@ -29,7 +29,6 @@ RUN \
  tar xf \
 	/tmp/sickgear.tar.gz -C \
 	/app/sickgear/ --strip-components=1 && \
- cd /app/sickgear && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/* \
