@@ -69,9 +69,9 @@ docker create \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 8081:8081 \
-  -v <path to data>:/config \
-  -v <path to data>:/tv \
-  -v <path to data>:/downloads \
+  -v /path/to/data:/config \
+  -v /path/to/data:/tv \
+  -v /path/to/data:/downloads \
   --restart unless-stopped \
   linuxserver/sickgear
 ```
@@ -92,9 +92,9 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - <path to data>:/config
-      - <path to data>:/tv
-      - <path to data>:/downloads
+      - /path/to/data:/config
+      - /path/to/data:/tv
+      - /path/to/data:/downloads
     ports:
       - 8081:8081
     restart: unless-stopped
@@ -111,7 +111,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-v /config` | this will store any uploaded data on the docker host |
 | `-v /tv` | where you store your tv shows |
-| `-v /downloads` | your downloads folder for post processing (must not be donwload in progress) |
+| `-v /downloads` | your downloads folder for post processing (must not be download in progress) |
 
 ## Environment variables from files (Docker secrets)
 
