@@ -16,6 +16,12 @@ available_architectures:
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
+# development version
+development_versions: true
+development_versions_items:
+  - { tag: "latest", desc: "Stable SickGear releases" }
+  - { tag: "develop", desc: "SickGear develop branch commits" }
+
 # container parameters
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
@@ -64,6 +70,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "05.06.20:", desc: "Create `develop` tag to track the upstream `develop` branch commits." }
   - { date: "03.06.20:", desc: "Rebasing to alpine 3.12, switch to python3." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
