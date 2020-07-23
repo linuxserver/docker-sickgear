@@ -34,7 +34,7 @@ procps-3.3.16-r0
 py3-cheetah-3.2.5-r0
 py3-lxml-4.5.1-r0
 py3-regex-2020.5.14-r0
-python3-3.8.4-r0
+python3-3.8.5-r0
 readline-8.0.4-r0
 scanelf-1.2.6-r0
 shadow-4.8.1-r0
