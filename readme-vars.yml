@@ -5,7 +5,7 @@ project_name: sickgear
 project_url: "https://github.com/sickgear/sickgear"
 project_logo: "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
 project_blurb: |
-  [SickGear]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+  [SickGear]({{ project_url }}) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..
 
   For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
@@ -46,8 +46,8 @@ app_setup_block: |
 
   * The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
 
-  * The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. 
-  Symptoms of this issue include port usage problems and a failure to start the web server log entries. 
+  * The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`.
+  Symptoms of this issue include port usage problems and a failure to start the web server log entries.
   Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
 
   It is recommended that a clean install be completed, rather than a migration, however if migration is necessary:
@@ -64,6 +64,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "29.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
   - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "03.06.20:", desc: "Rebasing to alpine 3.12, switch to python3." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
