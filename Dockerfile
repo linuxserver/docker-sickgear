@@ -16,7 +16,8 @@ RUN \
 	curl \
 	py3-cheetah \
 	py3-lxml \
-	py3-regex && \
+	py3-regex \
+	unrar && \
  echo "**** install app ****" && \
  mkdir -p \
 	/app/sickgear/ && \
