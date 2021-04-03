@@ -14,7 +14,7 @@ libacl-2.2.53-r0
 libattr-2.4.48-r0
 libbz2-1.0.8-r1
 libc-utils-0.7.2-r3
-libcrypto1.1-1.1.1j-r0
+libcrypto1.1-1.1.1k-r0
 libcurl-7.74.0-r1
 libffi-3.3-r2
 libgcc-10.2.1_pre1-r3
@@ -22,7 +22,7 @@ libgcrypt-1.8.7-r0
 libgpg-error-1.41-r0
 libintl-0.20.2-r2
 libproc-3.3.16-r0
-libssl1.1-1.1.1j-r0
+libssl1.1-1.1.1k-r0
 libstdc++-10.2.1_pre1-r3
 libtls-standalone-2.9.1-r1
 libxml2-2.9.10-r6
@@ -35,7 +35,7 @@ ncurses-terminfo-base-6.2_p20210109-r0
 nghttp2-libs-1.42.0-r1
 procps-3.3.16-r0
 py3-cheetah-3.2.6-r0
-py3-lxml-4.6.2-r0
+py3-lxml-4.6.3-r0
 py3-regex-2020.11.13-r0
 python3-3.8.8-r0
 readline-8.1.0-r0
