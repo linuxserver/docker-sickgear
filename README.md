@@ -108,6 +108,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=Europe/London
     volumes:
       - /path/to/data:/config
       - /path/to/data:/tv
@@ -124,6 +125,7 @@ docker run -d \
   --name=sickgear \
   -e PUID=1000 \
   -e PGID=1000 \
+  -e TZ=Europe/London \
   -p 8081:8081 \
   -v /path/to/data:/config \
   -v /path/to/data:/tv \
@@ -141,6 +143,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8081` | will map the container's port 8081 to port 8081 on the host |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
+| `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 | `-v /config` | this will store any uploaded data on the docker host |
 | `-v /tv` | where you store your tv shows |
 | `-v /downloads` | your downloads folder for post processing (must not be download in progress) |
@@ -254,6 +257,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.09.22:** - Rebase to alpine 3.15. Build unrar from source.
 * **31.01.21:** - Add unrar.
 * **29.01.21:** - Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
 * **23.01.21:** - Rebasing to alpine 3.13.

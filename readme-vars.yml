@@ -23,7 +23,9 @@ param_volumes:
   - { vol_path: "/config", vol_host_path: "/path/to/data", desc: "this will store any uploaded data on the docker host" }
   - { vol_path: "/tv", vol_host_path: "/path/to/data", desc: "where you store your tv shows" }
   - { vol_path: "/downloads", vol_host_path: "/path/to/data", desc: "your downloads folder for post processing (must not be download in progress)" }
-param_usage_include_env: false
+param_usage_include_env: true
+param_env_vars:
+  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 
 param_usage_include_ports: true
 param_ports:
@@ -64,6 +66,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "19.09.22:", desc: "Rebase to alpine 3.15. Build unrar from source." }
   - { date: "31.01.21:", desc: "Add unrar." }
   - { date: "29.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
   - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
