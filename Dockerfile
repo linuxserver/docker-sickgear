@@ -14,12 +14,10 @@ ENV PYTHONIOENCODING="UTF-8"
 RUN \
   echo "**** install packages ****" && \
   apk add -U --update --no-cache --virtual=build-dependencies \
-    build-base \
     g++ \
     gcc \
     make && \  
   apk add --no-cache \
-    curl \
     py3-cheetah \
     py3-lxml \
     py3-regex && \
