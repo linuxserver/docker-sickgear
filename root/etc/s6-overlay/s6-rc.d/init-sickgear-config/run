@@ -2,13 +2,14 @@
 
 #make our folders and links
 mkdir -p \
-        /config \
+    /config
 
 # If needed add dafault config
-[[ ! -e /config/config.ini ]] && \
-cp /defaults/config.ini /config/config.ini
+if [[ ! -f /config/config.ini ]]; then
+    cp /defaults/config.ini /config/config.ini
+fi
 
 # permissions
 chown -R abc:abc \
-	/app \
-	/config
+    /app \
+    /config
