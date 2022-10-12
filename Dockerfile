@@ -1,13 +1,12 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.15
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16
 
 # set version label
+ARG UNRAR_VERSION=6.1.7
 ARG BUILD_DATE
 ARG VERSION
 ARG SICKGEAR_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="xe, homerr"
-
-ARG UNRAR_VERSION=6.1.7
 
 # set python to use utf-8 rather than ascii.
 ENV PYTHONIOENCODING="UTF-8"
@@ -20,7 +19,6 @@ RUN \
     gcc && \
   echo "**** install packages ****" && \
   apk add --no-cache \
-    curl \
     py3-cheetah \
     py3-lxml \
     py3-regex && \
@@ -60,4 +58,5 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 8081
+
 VOLUME /config
