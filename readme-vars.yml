@@ -70,6 +70,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "10.10.22:", desc: "Rebase develop branch to Alpine 3.16, migrate to s6v3, build unrar from source." }
   - { date: "31.01.21:", desc: "Add unrar." }
   - { date: "29.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
   - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
