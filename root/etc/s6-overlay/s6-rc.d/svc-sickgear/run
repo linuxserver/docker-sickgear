@@ -2,4 +2,4 @@
 
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 8081" \
-        s6-setuidgid abc python3 /app/sickgear/SickBeard.py --datadir /config
+        s6-setuidgid abc python3 /app/sickgear/sickgear.py --datadir /config
