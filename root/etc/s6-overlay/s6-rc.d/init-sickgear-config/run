@@ -10,6 +10,5 @@ if [[ ! -f /config/config.ini ]]; then
 fi
 
 # permissions
-chown -R abc:abc \
-    /app \
+lsiown -R abc:abc \
     /config

@@ -36,7 +36,7 @@ pipeline {
     CI_DELAY='120'
     CI_DOCKERENV='TZ=Europe/London'
     CI_AUTH='user:password'
-    CI_WEBPATH=''
+    CI_WEBPATH='/home/view-changes'
   }
   stages {
     // Setup all the basic environment variables needed for the build
