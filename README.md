@@ -58,7 +58,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf| ✅ | arm32v7-\<version tag\> |
+| armhf | ✅ | arm32v7-\<version tag\> |
 
 ## Version Tags
 
@@ -68,7 +68,6 @@ This image provides various versions that are available via tags. Please read th
 | :----: | :----: |--- |
 | latest | ✅ | Stable SickGear releases |
 | develop | ✅ | SickGear develop branch commits |
-
 ## Application Setup
 
 ## Setting up the application
@@ -117,6 +116,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=Etc/UTC
     volumes:
       - /path/to/data:/config
       - /path/to/data:/tv
@@ -133,12 +133,14 @@ docker run -d \
   --name=sickgear \
   -e PUID=1000 \
   -e PGID=1000 \
+  -e TZ=Etc/UTC \
   -p 8081:8081 \
   -v /path/to/data:/config \
   -v /path/to/data:/tv \
   -v /path/to/data:/downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/sickgear:develop
+
 ```
 
 ## Parameters
@@ -150,6 +152,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8081` | will map the container's port 8081 to port 8081 on the host |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
+| `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `-v /config` | this will store any uploaded data on the docker host |
 | `-v /tv` | where you store your tv shows |
 | `-v /downloads` | your downloads folder for post processing (must not be download in progress) |
