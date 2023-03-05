@@ -258,6 +258,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **05.03.23:** - Rebase to Alpine 3.17.
 * **18.11.22:** - Update service file from legacy SickBeard.py to sickgear.py.
 * **10.10.22:** - Rebase to Alpine 3.16, migrate to s6v3.
 * **19.09.22:** - Rebase to alpine 3.15. Build unrar from source.
