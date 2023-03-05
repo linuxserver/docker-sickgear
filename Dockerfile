@@ -1,4 +1,6 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.16
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-alpine:3.17
 
 # set version label
 ARG UNRAR_VERSION=6.1.7
@@ -14,9 +16,7 @@ ENV PYTHONIOENCODING="UTF-8"
 RUN \
   echo "**** install packages ****" && \
   apk add -U --update --no-cache --virtual=build-dependencies \
-    g++ \
-    gcc \
-    make && \  
+    build-base && \
   apk add --no-cache \
     py3-cheetah \
     py3-lxml \
