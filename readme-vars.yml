@@ -66,6 +66,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "05.03.23:", desc: "Rebase to Alpine 3.17." }
   - { date: "18.11.22:", desc: "Update service file from legacy SickBeard.py to sickgear.py." }
   - { date: "10.10.22:", desc: "Rebase to Alpine 3.16, migrate to s6v3." }
   - { date: "19.09.22:", desc: "Rebase to alpine 3.15. Build unrar from source." }
