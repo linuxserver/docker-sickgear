@@ -34,7 +34,7 @@ RUN \
   mkdir -p \
     /app/sickgear/ && \
   if [ -z ${SICKGEAR_RELEASE+x} ]; then \
-    SICKGEAR_RELEASE=$(curl -sX GET "https://api.github.com/repos/sickgear/sickgear/commits/develop" \
+    SICKGEAR_RELEASE=$(curl -sX GET "https://api.github.com/repos/sickgear/sickgear/commits/dev" \
     | awk '/sha/{print $4;exit}' FS='[""]'); \
   fi && \
   curl -o \
