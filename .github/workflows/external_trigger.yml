@@ -20,7 +20,7 @@ jobs:
           echo "**** External trigger running off of develop branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_SICKGEAR_DEVELOP\". ****"
           echo "External trigger running off of develop branch. To disable this trigger, set a Github secret named \`PAUSE_EXTERNAL_TRIGGER_SICKGEAR_DEVELOP\`" >> $GITHUB_STEP_SUMMARY
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/sickgear/sickgear/commits/develop" | jq -r '. | .sha' | cut -c1-8)
+          EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/sickgear/sickgear/commits/dev" | jq -r '. | .sha' | cut -c1-8)
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for sickgear branch develop"
