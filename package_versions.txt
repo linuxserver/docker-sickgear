@@ -1,6 +1,6 @@
 NAME                        VERSION                 TYPE   
 CT3                         3.3.2                   python  
-Command line RAR            6.22.0                  dotnet  
+Command line RAR            6.23.0                  dotnet  
 Levenshtein                 0.21.1                  python  
 Simple Launcher Executable  1.1.0.14                dotnet  
 alpine-baselayout           3.4.3-r1                apk     
