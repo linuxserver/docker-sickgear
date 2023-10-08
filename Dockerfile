@@ -1,9 +1,10 @@
 # syntax=docker/dockerfile:1
 
+FROM ghcr.io/linuxserver/unrar:latest as unrar
+
 FROM ghcr.io/linuxserver/baseimage-alpine:3.18
 
 # set version label
-ARG UNRAR_VERSION=6.2.10
 ARG BUILD_DATE
 ARG VERSION
 ARG SICKGEAR_RELEASE
@@ -20,17 +21,6 @@ RUN \
   echo "**** install packages ****" && \
   apk add --no-cache \
     python3 && \
-  echo "**** install unrar from source ****" && \
-  mkdir /tmp/unrar && \
-  curl -o \
-    /tmp/unrar.tar.gz -L \
-    "https://www.rarlab.com/rar/unrarsrc-${UNRAR_VERSION}.tar.gz" && \  
-  tar xf \
-    /tmp/unrar.tar.gz -C \
-    /tmp/unrar --strip-components=1 && \
-  cd /tmp/unrar && \
-  make && \
-  install -v -m755 unrar /usr/local/bin && \
   echo "**** install app ****" && \
   mkdir -p \
     /app/sickgear/ && \
@@ -60,6 +50,9 @@ RUN \
 
 # copy local files
 COPY root/ /
+
+# add unrar
+COPY --from=unrar /usr/bin/unrar-alpine /usr/bin/unrar
 
 # ports and volumes
 EXPOSE 8081
