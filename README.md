@@ -332,6 +332,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **08.10.23:** - Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar).
 * **10.08.23:** - Bump unrar to 6.2.10.
 * **27.05.23:** - Rebase develop to Alpine 3.18, deprecate armhf.
 * **05.03.23:** - Rebase develop to Alpine 3.17.
