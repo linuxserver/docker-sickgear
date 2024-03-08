@@ -56,7 +56,7 @@ pycparser               2.21                    python
 python3                 3.11.8-r0               apk                      
 python3-pyc             3.11.8-r0               apk                      
 python3-pycache-pyc0    3.11.8-r0               apk                      
-rapidfuzz               3.6.1                   python                   
+rapidfuzz               3.6.2                   python                   
 readline                8.2.1-r1                apk                      
 regex                   2023.12.25              python                   
 scanelf                 1.3.7-r1                apk                      
