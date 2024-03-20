@@ -39,7 +39,7 @@ Find us at:
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-sickgear%2Fjob%2Fdevelop%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-sickgear/job/develop/)
 [![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fsickgear%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/sickgear/latest/index.html)
 
-[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. 
+[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..
 
 For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 
@@ -82,17 +82,17 @@ Non linuxserver.io containers are known to have the following configuration diff
 
 * The permissions environmental variables which are defined as `PGID` and `PUID` within this container may have been `APP_UID` and `APP_UID` in other versions.
 
-* The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
+* The configuration file directory which is volume mounted as `config` within this container may be set as the environmental variable `APP_DATA` in other versions.
 
-* The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`. 
-Symptoms of this issue include port usage problems and a failure to start the web server log entries. 
+* The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`.
+Symptoms of this issue include port usage problems and a failure to start the web server log entries.
 Whilst the container is stopped alter this directive to `cache_dir = cache` which will allow SickGear to look for the folder relative to the volume mounted `/config` directory.
 
 It is recommended that a clean install be completed, rather than a migration, however if migration is necessary:
 
 * start a new instance of this image
 
-* compare and align SickGear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow SickGear itself to try and migrate
+* compare and align SickGear version numbers between old and new. Ideally they should match but at a minimum the old version should be a lower version number to allow SickGear itself to try and migrate
 
 * stop both containers
 
@@ -117,7 +117,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /path/to/data:/config
+      - /path/to/sickgear/data:/config
       - /path/to/data:/tv
       - /path/to/data:/downloads
     ports:
@@ -134,7 +134,7 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
   -p 8081:8081 \
-  -v /path/to/data:/config \
+  -v /path/to/sickgear/data:/config \
   -v /path/to/data:/tv \
   -v /path/to/data:/downloads \
   --restart unless-stopped \
@@ -151,7 +151,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
-| `-v /config` | this will store any uploaded data on the docker host |
+| `-v /config` | Persistent config files. |
 | `-v /tv` | where you store your tv shows |
 | `-v /downloads` | your downloads folder for post processing (must not be download in progress) |
 
@@ -316,6 +316,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.03.24:** - Rebase to Alpine 3.19.
 * **08.10.23:** - Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar).
 * **10.08.23:** - Bump unrar to 6.2.10.
 * **27.05.23:** - Rebase develop to Alpine 3.18, deprecate armhf.
