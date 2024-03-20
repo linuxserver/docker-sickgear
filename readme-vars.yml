@@ -20,12 +20,9 @@ available_architectures:
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/data", desc: "this will store any uploaded data on the docker host" }
+  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Persistent configuration files." }
   - { vol_path: "/tv", vol_host_path: "/path/to/data", desc: "where you store your tv shows" }
   - { vol_path: "/downloads", vol_host_path: "/path/to/data", desc: "your downloads folder for post processing (must not be download in progress)" }
-param_usage_include_env: true
-param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 
 param_usage_include_ports: true
 param_ports:
@@ -46,7 +43,7 @@ app_setup_block: |
 
   * The permissions environmental variables which are defined as `PGID` and `PUID` within this container may have been `APP_UID` and `APP_UID` in other versions.
 
-  * The configuration file directory which is volume mounted as `config` within this container may be set as the environmetal variable `APP_DATA` in other versions.
+  * The configuration file directory which is volume mounted as `config` within this container may be set as the environmental variable `APP_DATA` in other versions.
 
   * The cache directory which is set in `config.ini` may be configured as a fixed path `cache_dir = /data/cache`.
   Symptoms of this issue include port usage problems and a failure to start the web server log entries.
@@ -56,7 +53,7 @@ app_setup_block: |
 
   * start a new instance of this image
 
-  * compare and align SickGear version numbers bewteen old and new. Ideally they should match but at a minumum the old vesion should be a lower version number to allow SickGear itself to try and migrate
+  * compare and align SickGear version numbers between old and new. Ideally they should match but at a minimum the old version should be a lower version number to allow SickGear itself to try and migrate
 
   * stop both containers
 
@@ -66,6 +63,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "20.03.24:", desc: "Rebase to Alpine 3.19."}
   - { date: "08.10.23:", desc: "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."}
   - { date: "10.08.23:", desc: "Bump unrar to 6.2.10."}
   - { date: "27.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf." }
