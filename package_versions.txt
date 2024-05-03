@@ -53,7 +53,7 @@ ncurses-terminfo-base   6.4_p20231125-r0       apk
 netcat-openbsd          1.226-r0               apk                      
 nghttp2-libs            1.58.0-r0              apk                      
 oniguruma               6.9.9-r0               apk                      
-orjson                  3.10.1                 python                   
+orjson                  3.10.2                 python                   
 pip                     24.0                   python                   
 procps-ng               4.0.4-r0               apk                      
 pyc                     3.11.9-r0              apk                      
@@ -61,9 +61,9 @@ pycparser               2.22                   python
 python3                 3.11.9-r0              apk                      
 python3-pyc             3.11.9-r0              apk                      
 python3-pycache-pyc0    3.11.9-r0              apk                      
-rapidfuzz               3.8.1                  python                   
+rapidfuzz               3.9.0                  python                   
 readline                8.2.1-r2               apk                      
-regex                   2024.4.16              python                   
+regex                   2024.4.28              python                   
 scanelf                 1.3.7-r2               apk                      
 setuptools              65.5.0                 python                   
 shadow                  4.14.2-r0              apk                      
