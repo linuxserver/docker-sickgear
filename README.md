@@ -57,7 +57,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ✅ | arm32v7-\<version tag\> |
+| armhf | ❌ | |
 
 ## Application Setup
 
@@ -109,8 +109,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /path/to/sickgear/data:/config
-      - /path/to/data:/tv
-      - /path/to/data:/downloads
+      - /path/to/tv:/tv
+      - /path/to/downloads:/downloads
     ports:
       - 8081:8081
     restart: unless-stopped
@@ -126,8 +126,8 @@ docker run -d \
   -e TZ=Etc/UTC \
   -p 8081:8081 \
   -v /path/to/sickgear/data:/config \
-  -v /path/to/data:/tv \
-  -v /path/to/data:/downloads \
+  -v /path/to/tv:/tv \
+  -v /path/to/downloads:/downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/sickgear:latest
 ```
@@ -307,6 +307,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.06.24:** - Rebase to Alpine 3.20.
 * **20.03.24:** - Rebase to Alpine 3.19.
 * **08.10.23:** - Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar).
 * **10.08.23:** - Bump unrar to 6.2.10.
