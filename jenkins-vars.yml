@@ -6,7 +6,6 @@ external_type: github_commit
 release_type: prerelease
 release_tag: develop
 ls_branch: develop
-build_armhf: false
 repo_vars:
   - EXT_GIT_BRANCH = 'dev'
   - EXT_USER = 'sickgear'
@@ -25,6 +24,6 @@ repo_vars:
   - CI_PORT='8081'
   - CI_SSL='false'
   - CI_DELAY='120'
-  - CI_DOCKERENV='TZ=Europe/London'
-  - CI_AUTH='user:password'
+  - CI_DOCKERENV=''
+  - CI_AUTH=''
   - CI_WEBPATH='/home/view-changes'
