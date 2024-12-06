@@ -9,24 +9,20 @@ project_blurb: |
 
   For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # container parameters
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Persistent configuration files." }
-  - { vol_path: "/tv", vol_host_path: "/path/to/tv", desc: "where you store your tv shows" }
-  - { vol_path: "/downloads", vol_host_path: "/path/to/downloads", desc: "your downloads folder for post processing (must not be download in progress)" }
-
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Persistent configuration files."}
+  - {vol_path: "/tv", vol_host_path: "/path/to/tv", desc: "where you store your tv shows"}
+  - {vol_path: "/downloads", vol_host_path: "/path/to/downloads", desc: "your downloads folder for post processing (must not be download in progress)"}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "8081", internal_port: "8081", port_desc: "will map the container's port 8081 to port 8081 on the host" }
-
+  - {external_port: "8081", internal_port: "8081", port_desc: "will map the container's port 8081 to port 8081 on the host"}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -59,26 +55,67 @@ app_setup_block: |
   * notice the configuration difference and migrate copies of the old settings into the new app
 
   * start the new container and test
-
+# init diagram
+init_diagram: |
+  "sickgear:latest": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-sickgear-config -> init-config-end
+    init-os-end -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    base -> init-migrations
+    base -> init-mods
+    init-config-end -> init-mods
+    init-mods -> init-mods-end
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    base -> init-os-end
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-migrations -> init-os-end
+    init-custom-files -> init-services
+    init-mods-end -> init-services
+    init-config -> init-sickgear-config
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-sickgear
+    svc-sickgear -> legacy-services
+  }
+  Base Images: {
+    "baseimage-alpine:3.20"
+  }
+  "sickgear:latest" <- Base Images
 # changelog
 changelogs:
-  - { date: "25.06.24:", desc: "Rebase to Alpine 3.20."}
-  - { date: "20.03.24:", desc: "Rebase to Alpine 3.19."}
-  - { date: "08.10.23:", desc: "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."}
-  - { date: "10.08.23:", desc: "Bump unrar to 6.2.10."}
-  - { date: "27.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf." }
-  - { date: "05.03.23:", desc: "Rebase to Alpine 3.17." }
-  - { date: "18.11.22:", desc: "Update service file from legacy SickBeard.py to sickgear.py." }
-  - { date: "10.10.22:", desc: "Rebase to Alpine 3.16, migrate to s6v3." }
-  - { date: "19.09.22:", desc: "Rebase to alpine 3.15. Build unrar from source." }
-  - { date: "31.01.21:", desc: "Add unrar." }
-  - { date: "29.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
-  - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
-  - { date: "03.06.20:", desc: "Rebasing to alpine 3.12, switch to python3." }
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
-  - { date: "07.11.18:", desc: "Pipeline prep"}
-  - { date: "07.07.18:", desc: "Initial draft release"}
-
+  - {date: "25.06.24:", desc: "Rebase to Alpine 3.20."}
+  - {date: "20.03.24:", desc: "Rebase to Alpine 3.19."}
+  - {date: "08.10.23:", desc: "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."}
+  - {date: "10.08.23:", desc: "Bump unrar to 6.2.10."}
+  - {date: "27.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf."}
+  - {date: "05.03.23:", desc: "Rebase to Alpine 3.17."}
+  - {date: "18.11.22:", desc: "Update service file from legacy SickBeard.py to sickgear.py."}
+  - {date: "10.10.22:", desc: "Rebase to Alpine 3.16, migrate to s6v3."}
+  - {date: "19.09.22:", desc: "Rebase to alpine 3.15. Build unrar from source."}
+  - {date: "31.01.21:", desc: "Add unrar."}
+  - {date: "29.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."}
+  - {date: "23.01.21:", desc: "Rebasing to alpine 3.13."}
+  - {date: "03.06.20:", desc: "Rebasing to alpine 3.12, switch to python3."}
+  - {date: "19.12.19:", desc: "Rebasing to alpine 3.11."}
+  - {date: "28.06.19:", desc: "Rebasing to alpine 3.10."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "22.02.19:", desc: "Rebasing to alpine 3.9."}
+  - {date: "07.11.18:", desc: "Pipeline prep"}
+  - {date: "07.07.18:", desc: "Initial draft release"}
