@@ -26,7 +26,7 @@ coreutils               9.5-r2                 apk
 coreutils-env           9.5-r2                 apk                      
 coreutils-fmt           9.5-r2                 apk                      
 coreutils-sha512sum     9.5-r2                 apk                      
-cryptography            45.0.3                 python                   
+cryptography            45.0.4                 python                   
 ct3                     3.4.0                  python                   
 curl                    8.12.1-r0              apk                      
 findutils               4.9.0-r5               apk                      
@@ -78,11 +78,11 @@ packaging               24.2                   python
 pip                     25.1.1                 python                   
 platformdirs            4.2.2                  python                   
 procps-ng               4.0.4-r0               apk                      
-pyc                     3.12.10-r1             apk                      
+pyc                     3.12.11-r0             apk                      
 pycparser               2.22                   python                   
-python3                 3.12.10-r1             apk                      
-python3-pyc             3.12.10-r1             apk                      
-python3-pycache-pyc0    3.12.10-r1             apk                      
+python3                 3.12.11-r0             apk                      
+python3-pyc             3.12.11-r0             apk                      
+python3-pycache-pyc0    3.12.11-r0             apk                      
 rapidfuzz               3.13.0                 python                   
 readline                8.2.10-r0              apk                      
 regex                   2024.11.6              python                   
