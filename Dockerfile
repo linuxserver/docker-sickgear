@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/unrar:latest as unrar
+FROM ghcr.io/linuxserver/unrar:latest AS unrar
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20
+FROM ghcr.io/linuxserver/baseimage-alpine:3.22
 
 # set version label
 ARG BUILD_DATE
@@ -38,8 +38,8 @@ RUN \
   pip install -U --no-cache-dir \
     pip \
     wheel && \
-  pip install --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.20/ -r requirements.txt && \
-  pip install --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.20/ -r recommended.txt && \
+  pip install --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.22/ -r requirements.txt && \
+  pip install --no-cache-dir --find-links https://wheel-index.linuxserver.io/alpine-3.22/ -r recommended.txt && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   apk del --purge \
