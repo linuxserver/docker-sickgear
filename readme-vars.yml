@@ -35,7 +35,6 @@ app_setup_block: |
   ## Setting up the application
 
   Access the webui at `<your-ip>:8081`, for more information check out [SickGear]({{ project_url }}).
-
 # init diagram
 init_diagram: |
   "sickgear:latest": {
@@ -53,24 +52,20 @@ init_diagram: |
     init-migrations -> init-adduser
     init-os-end -> init-config
     init-config -> init-config-end
+    init-crontab-config -> init-config-end
     init-sickgear-config -> init-config-end
-    init-os-end -> init-crontab-config
+    init-config -> init-crontab-config
     init-mods-end -> init-custom-files
     init-adduser -> init-device-perms
     base -> init-envfile
     base -> init-migrations
-    base -> init-mods
     init-config-end -> init-mods
-    init-mods -> init-mods-end
     init-mods-package-install -> init-mods-end
     init-mods -> init-mods-package-install
-    base -> init-os-end
     init-adduser -> init-os-end
     init-device-perms -> init-os-end
     init-envfile -> init-os-end
-    init-migrations -> init-os-end
     init-custom-files -> init-services
-    init-mods-end -> init-services
     init-config -> init-sickgear-config
     init-services -> svc-cron
     svc-cron -> legacy-services
@@ -78,7 +73,7 @@ init_diagram: |
     svc-sickgear -> legacy-services
   }
   Base Images: {
-    "baseimage-alpine:3.20"
+    "baseimage-alpine:3.22"
   }
   "sickgear:latest" <- Base Images
 # changelog
