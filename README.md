@@ -56,6 +56,15 @@ The architectures supported by this image are:
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
 
+## Version Tags
+
+This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
+
+| Tag | Available | Description |
+| :----: | :----: |--- |
+| latest | ✅ | Stable SickGear releases |
+| develop | ✅ | SickGear develop branch commits |
+
 ## Application Setup
 
 ## Setting up the application
