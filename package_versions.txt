@@ -5,7 +5,7 @@ acl-libs                2.3.2-r1          apk
 alpine-baselayout       3.7.0-r0          apk                      
 alpine-baselayout-data  3.7.0-r0          apk                      
 alpine-keys             2.5-r0            apk                      
-alpine-release          3.22.1-r0         apk                      
+alpine-release          3.22.2-r0         apk                      
 apk-tools               2.14.9-r3         apk                      
 autocommand             2.2.2             python                   
 backports-tarfile       1.2.0             python                   
@@ -78,11 +78,11 @@ packaging               24.2              python
 pip                     25.2              python                   
 platformdirs            4.2.2             python                   
 procps-ng               4.0.4-r3          apk                      
-pyc                     3.12.11-r0        apk                      
+pyc                     3.12.12-r0        apk                      
 pycparser               2.23              python                   
-python3                 3.12.11-r0        apk                      
-python3-pyc             3.12.11-r0        apk                      
-python3-pycache-pyc0    3.12.11-r0        apk                      
+python3                 3.12.12-r0        apk                      
+python3-pyc             3.12.12-r0        apk                      
+python3-pycache-pyc0    3.12.12-r0        apk                      
 rapidfuzz               3.14.1            python                   
 readline                8.2.13-r1         apk                      
 regex                   2025.9.18         python                   
