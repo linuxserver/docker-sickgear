@@ -85,7 +85,7 @@ python3-pyc             3.12.12-r0        apk
 python3-pycache-pyc0    3.12.12-r0        apk                      
 rapidfuzz               3.14.1            python                   
 readline                8.2.13-r1         apk                      
-regex                   2025.9.18         python                   
+regex                   2025.10.23        python                   
 scanelf                 1.3.8-r1          apk                      
 setuptools              80.9.0            python                   
 shadow                  4.17.3-r0         apk                      
