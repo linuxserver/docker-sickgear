@@ -1,6 +1,6 @@
 NAME                    VERSION           TYPE                    
 Simple Launcher         1.1.0.14          binary  (+5 duplicates)  
-WinRAR                  7.13.0            binary                   
+WinRAR                  7.20.0            binary                   
 acl-libs                2.3.2-r1          apk                      
 alpine-baselayout       3.7.0-r0          apk                      
 alpine-baselayout-data  3.7.0-r0          apk                      
@@ -85,7 +85,7 @@ rapidfuzz               3.14.3            python
 readline                8.2.13-r1         apk                      
 regex                   2026.1.15         python                   
 scanelf                 1.3.8-r1          apk                      
-setuptools              80.10.2           python                   
+setuptools              81.0.0            python                   
 shadow                  4.17.3-r0         apk                      
 skalibs-libs            2.14.4.0-r0       apk                      
 sqlite-libs             3.49.2-r1         apk                      
