@@ -18,7 +18,7 @@ c-ares                  1.34.8-r0         apk
 ca-certificates         20260611-r0       apk                      
 ca-certificates-bundle  20260611-r0       apk                      
 catatonit               0.2.1-r0          apk                      
-cffi                    2.1.0             python                   
+cffi                    2.1.1             python                   
 cli                     UNKNOWN           binary                   
 cli-32                  UNKNOWN           binary                   
 cli-64                  UNKNOWN           binary                   
@@ -27,7 +27,7 @@ coreutils               9.7-r1            apk
 coreutils-env           9.7-r1            apk                      
 coreutils-fmt           9.7-r1            apk                      
 coreutils-sha512sum     9.7-r1            apk                      
-cryptography            49.0.0            python                   
+cryptography            50.0.0            python                   
 ct3                     3.4.0.post5       python                   
 curl                    8.14.1-r3         apk                      
 findutils               4.10.0-r0         apk                      
@@ -72,8 +72,8 @@ nghttp2-libs            1.69.0-r0         apk
 oniguruma               6.9.10-r0         apk                      
 orjson                  3.11.9            python                   
 packaging               26.0              python                   
-packaging               26.2              python                   
-pip                     26.2              python                   
+packaging               26.3              python                   
+pip                     26.2.1            python                   
 platformdirs            4.4.0             python                   
 procps-ng               4.0.4-r3          apk                      
 pyc                     3.12.13-r0        apk                      
