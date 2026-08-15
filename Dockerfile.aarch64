@@ -26,7 +26,7 @@ RUN \
     /app/sickgear/ && \
   if [ -z ${SICKGEAR_RELEASE+x} ]; then \
     SICKGEAR_RELEASE=$(curl -sX GET "https://api.github.com/repos/sickgear/sickgear/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+    | jq -r '.tag_name'); \
   fi && \
   curl -o \
     /tmp/sickgear.tar.gz -L \
