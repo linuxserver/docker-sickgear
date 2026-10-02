@@ -76,11 +76,11 @@ packaging               26.3              python
 pip                     26.2.1            python                   
 platformdirs            4.4.0             python                   
 procps-ng               4.0.4-r3          apk                      
-pyc                     3.12.14-r0        apk                      
+pyc                     3.12.15-r0        apk                      
 pycparser               3.0               python                   
-python3                 3.12.14-r0        apk                      
-python3-pyc             3.12.14-r0        apk                      
-python3-pycache-pyc0    3.12.14-r0        apk                      
+python3                 3.12.15-r0        apk                      
+python3-pyc             3.12.15-r0        apk                      
+python3-pycache-pyc0    3.12.15-r0        apk                      
 rapidfuzz               3.14.6            python                   
 readline                8.2.13-r1         apk                      
 regex                   2026.9.29         python                   
