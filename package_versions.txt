@@ -77,7 +77,7 @@ pip                     26.2.1            python
 platformdirs            4.4.0             python                   
 procps-ng               4.0.4-r3          apk                      
 pyc                     3.12.15-r0        apk                      
-pycparser               3.1               python                   
+pycparser               3.11              python                   
 python3                 3.12.15-r0        apk                      
 python3-pyc             3.12.15-r0        apk                      
 python3-pycache-pyc0    3.12.15-r0        apk                      
